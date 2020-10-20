@@ -1,0 +1,50 @@
+div.itemBcakground{
+    display: flex;
+    position: relative;
+    border-top: 1px solid #e0e0e0;
+    border: 5px 0;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+}
+span.itemContent{
+    font-size: 25px;
+    font-weight: 500;
+    display: block;
+    margin: 0 20px;
+}
+input.itemInput{
+    width: 85%;
+    position: absolute;
+    font-size: 25px;
+    font-weight: 500;
+    display: none;
+    margin: 0 19px;
+}
+input#itemCheckBox{
+    position: absolute;
+    top: 23px;
+    right: 110px;
+}
+button{
+    outline: none;
+    border: 0px solid white;
+    background-color: transparent;
+}
+button:hover#editBtn{
+    background-color: #1890FF;
+    border-radius: 50px;
+}
+button:hover#deleteBtn{
+    background-color: #1890FF;
+    border-radius: 50px;
+}
+button#editBtn{
+    position: absolute;
+    right: 60px;
+    margin: 10px 0;
+}
+button#deleteBtn{
+    position: absolute;
+    right: 20px;
+    margin: 10px 0;
+}

@@ -1,0 +1,14 @@
+div#inputBackground.inputBackgroundStyle{
+    margin: 20px 0;
+}
+button#submitBtn.submitBtnStyle{
+    font-weight: 700;
+    position: absolute;
+    margin:  0 20px;
+}
+span#listSpan{
+    font-size: 20px;
+    display: block;
+    margin: 20px 0;
+    color: #888;
+}
