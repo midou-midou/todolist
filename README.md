@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Wuyuan前端ToDo list测试
 
-项目已经部署到服务器，可以[点击前往](http://todolist.xiaoblogs.cn)
+项目已经部署到服务器，可以[点击前往](http://todolist.xiaoblogs.cn:88)
 
 ### `npm start`
 
