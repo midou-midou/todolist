@@ -23,7 +23,6 @@ class ToDoList extends Component{
 	}
 
 	componentDidUpdate(){
-		console.log(this.state.list);
 		if(!window.localStorage){
             alert("浏览器不支持localstorage");
         }else{
@@ -45,7 +44,7 @@ class ToDoList extends Component{
 					<h3><span id="listSpan">WORK LIST</span></h3>
 					<ul>
 						{this.state.list.map((item, index) => {
-								return <ListItem key={item.id} data={item}></ListItem>
+								return <div key={index}><ListItem data={item}></ListItem></div>
 						})}
 					</ul>
 				</div>

@@ -3,7 +3,6 @@ import { message } from 'antd';
 import { deleteitem, edititem, finishwork } from './store/actionCreate'
 import store from './store'
 import propTypes from 'prop-types' 
-
 import 'antd/dist/antd.css'
 import './static/listitem.css'
 import './static/iconfont/iconfont.js'
@@ -26,13 +25,21 @@ class ListItem extends Component{
     componentDidMount(){
         var spanDOM=document.getElementById('itemContent' + this.props.data.id);
         var divDOM=document.getElementById('itemBcakground' + this.props.data.id);
-        if(this.props.data.isFinished === true){
-            spanDOM.style.textDecoration="line-through";
-            divDOM.style.backgroundColor="#e9e7ef";
-        }
-        else{
-            spanDOM.style.textDecoration="none";
-            divDOM.style.backgroundColor="white";
+        store.subscribe(() => {
+            if(this.state.isFinished){
+                spanDOM.style.textDecoration="line-through";
+                divDOM.style.backgroundColor="#e9e7ef";
+            }else{
+                spanDOM.style.textDecoration="none";
+                divDOM.style.backgroundColor="white";
+            }
+        })
+    }
+
+    componentDidUpdate(preProps, preState){
+        if(this.state.isFinished !== preState.isFinished){
+            const action = finishwork(this.props.data.id, this.state.isFinished)
+            store.dispatch(action)
         }
     }
 
@@ -91,26 +98,9 @@ class ListItem extends Component{
     }
 
     itemFinish(){
-        var spanDOM=document.getElementById('itemContent' + this.props.data.id);
-        var divDOM=document.getElementById('itemBcakground' + this.props.data.id);
-        if(this.state.isFinished === false){
-            this.setState({
-                isFinished: true
-            })
-            spanDOM.style.textDecoration="none";
-            divDOM.style.backgroundColor="white";
-            const action = finishwork(this.props.data.id, this.state.isFinished);
-            store.dispatch(action);
-        }
-        else{
-            this.setState({
-                isFinished: false
-            })
-            spanDOM.style.textDecoration="line-through";
-            divDOM.style.backgroundColor="#e9e7ef";
-            const action = finishwork(this.props.data.id, this.state.isFinished);
-            store.dispatch(action);
-        }
+        this.setState({
+            isFinished: !this.state.isFinished
+        })
     }
 
 }

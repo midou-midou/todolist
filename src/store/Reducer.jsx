@@ -6,7 +6,7 @@ import {
  } 
 from './actionType'
 
-console.log(window.localStorage.getItem("todolist") === null)
+// console.log(window.localStorage.getItem("todolist") === null)
 
 if(!window.localStorage){
     alert("浏览器不支持localstorage");
